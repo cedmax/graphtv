@@ -2,18 +2,28 @@ import React, { Component } from "react";
 import Autosuggest from "react-autosuggest";
 import axios from "axios";
 
-const formatItem = item => `${item.title} - ${item.year}`;
+const formatItem = (item) => `${item.title} - ${item.year}`;
+const delay = new Promise((resolve) => setTimeout(resolve, 1500));
 
 class App extends Component {
-  fetchList = async query => {
+  fetchList = async (query) => {
     const { data } = await axios.get(`/api/search/${query.toLowerCase()}`);
     this.setState({ list: data });
   };
 
-  fetchShow = async ({ id }) => {
-    this.props.onLoading(this.state.value);
-    const { data } = await axios.get(`/api/show/${id}`);
-    this.props.onChange(data);
+  fetchShow = async ({ id }, retries) => {
+    try {
+      this.props.onLoading(this.state.value);
+      const { data } = await axios.get(`/api/show/${id}`);
+      this.props.onChange(data);
+    } catch (e) {
+      if (retries) {
+        await delay();
+        this.fetchShow({ id }, --retries);
+      } else {
+        throw e;
+      }
+    }
   };
 
   state = {
@@ -32,16 +42,15 @@ class App extends Component {
         inputProps={{
           id,
           value,
-          placeholder: "Breaking Bad",
-          onChange: e => this.setState({ value: e.target.value }),
+          placeholder: "e.g.: Breaking Bad",
+          onChange: (e) => this.setState({ value: e.target.value }),
         }}
         suggestions={list}
-        onSuggestionsClearRequested={() => this.setState({ list: [] })}
-        getSuggestionValue={item => item.title}
+        getSuggestionValue={(item) => item.title}
         onSuggestionSelected={(event, { suggestion }) => {
           this.setState(
             { value: formatItem(suggestion), list: [suggestion] },
-            () => this.fetchShow(suggestion)
+            () => this.fetchShow(suggestion, 3)
           );
         }}
         onSuggestionsFetchRequested={({ value }) => {
@@ -50,7 +59,7 @@ class App extends Component {
             this.requestTimer = setTimeout(() => this.fetchList(value), 400);
           }
         }}
-        renderSuggestion={item => formatItem(item)}
+        renderSuggestion={(item) => formatItem(item)}
       />
     );
   }
