@@ -4830,14 +4830,13 @@ fastify-express@^0.1.0:
     express "^4.17.1"
     fastify-plugin "^2.0.0"
 
-fastify-http-proxy@^4.0.2:
-  version "4.0.2"
-  resolved "https://registry.yarnpkg.com/fastify-http-proxy/-/fastify-http-proxy-4.0.2.tgz#578a0fce83a418666a8f068fd4ab98b6ce5ab93f"
-  integrity sha512-2a0M4QUPmb62DXtsR7U+npAUekbifW7Yacm5BRTolSeFp9Vfn6bXk3yQzBP3mulfOeoQOvFdD38sWwD3huK37Q==
+fastify-http-proxy@^4.3.1:
+  version "4.3.1"
+  resolved "https://registry.yarnpkg.com/fastify-http-proxy/-/fastify-http-proxy-4.3.1.tgz#9bebc4d5562c226c405ca9076682801375174bfb"
+  integrity sha512-2awEQvxI64q8e4UQr4MxQgEhFfniGekP5fDScFoxahS8C0gnTgtT0AALWyNEHHvs4ylPcAMuwn7VtE/IFl19KA==
   dependencies:
-    fastify-reply-from "^3.1.2"
-    fastify-websocket "^2.0.3"
-    ws "^7.3.1"
+    fastify-reply-from "^4.0.2"
+    ws "^7.4.1"
 
 fastify-plugin@^2.0.0:
   version "2.0.1"
@@ -4846,26 +4845,23 @@ fastify-plugin@^2.0.0:
   dependencies:
     semver "^7.3.2"
 
-fastify-reply-from@^3.1.2:
-  version "3.1.2"
-  resolved "https://registry.yarnpkg.com/fastify-reply-from/-/fastify-reply-from-3.1.2.tgz#727720a2601c1635e4c36b1cd9ffa65f0675ccc0"
-  integrity sha512-6kgJb8ip7CCoFAv0EnZBhtLsf8aHIE0j+HOVNzwN1rzydXbY87M623ibwXw0X6ru+6hc49u+jNr5C0E2OdFatw==
+fastify-plugin@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/fastify-plugin/-/fastify-plugin-3.0.0.tgz#cf1b8c8098e3b5a7c8c30e6aeb06903370c054ca"
+  integrity sha512-ZdCvKEEd92DNLps5n0v231Bha8bkz1DjnPP/aEz37rz/q42Z5JVLmgnqR4DYuNn3NXAO3IDCPyRvgvxtJ4Ym4w==
+
+fastify-reply-from@^4.0.2:
+  version "4.0.2"
+  resolved "https://registry.yarnpkg.com/fastify-reply-from/-/fastify-reply-from-4.0.2.tgz#14d0b9dee26bc15b2450483c001a360f9aacdd9c"
+  integrity sha512-O7wP3IAOVt6fq8klznQmYK9bq6ues6LHthK0M2160LydD3RRRbCUhkOueYTRX20dCLXwGbAQmxpdKR+BE8qTTQ==
   dependencies:
     end-of-stream "^1.4.1"
-    fastify-plugin "^2.0.0"
+    fastify-plugin "^3.0.0"
+    http-errors "^1.8.0"
     pump "^3.0.0"
     semver "^7.2.1"
     tiny-lru "^7.0.0"
-    undici "^1.0.0"
-
-fastify-websocket@^2.0.3:
-  version "2.0.6"
-  resolved "https://registry.yarnpkg.com/fastify-websocket/-/fastify-websocket-2.0.6.tgz#5af1a5ce9e8dd46c745cd361f3da50235f7e6f71"
-  integrity sha512-N4IIRqyVe1AMhmaceQDhVOp4gjhl91/YTTdd7ipXguzwskx/ReFgYPUw5AIDvUVlHW5Uuc6nZ1HD4AGT9FqQBQ==
-  dependencies:
-    fastify-plugin "^2.0.0"
-    find-my-way "^3.0.0"
-    ws "^7.2.3"
+    undici "^2.1.0"
 
 fastify@^3.1.1:
   version "3.1.1"
@@ -5743,6 +5739,17 @@ http-errors@1.7.2:
     depd "~1.1.2"
     inherits "2.0.3"
     setprototypeof "1.1.1"
+    statuses ">= 1.5.0 < 2"
+    toidentifier "1.0.0"
+
+http-errors@^1.8.0:
+  version "1.8.0"
+  resolved "https://registry.yarnpkg.com/http-errors/-/http-errors-1.8.0.tgz#75d1bbe497e1044f51e4ee9e704a62f28d336507"
+  integrity sha512-4I8r0C5JDhT5VkvI47QktDW75rNlGVsUf/8hzjCC/wkWI/jdTRmBb9aI7erSG82r1bjKY3F6k28WnsVxB1C73A==
+  dependencies:
+    depd "~1.1.2"
+    inherits "2.0.4"
+    setprototypeof "1.2.0"
     statuses ">= 1.5.0 < 2"
     toidentifier "1.0.0"
 
@@ -10672,6 +10679,11 @@ setprototypeof@1.1.1:
   resolved "https://registry.yarnpkg.com/setprototypeof/-/setprototypeof-1.1.1.tgz#7e95acb24aa92f5885e0abef5ba131330d4ae683"
   integrity sha512-JvdAWfbXeIGaZ9cILp38HntZSFSo3mWg6xGcJJsd+d4aRMOqauag1C63dJfDw7OaMYwEbHMOxEZ1lqVRYP2OAw==
 
+setprototypeof@1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/setprototypeof/-/setprototypeof-1.2.0.tgz#66c9a24a73f9fc28cbe66b09fed3d33dcaf1b424"
+  integrity sha512-E5LDX7Wrp85Kil5bhZv46j8jOeboKq5JMmYM3gVGdGH8xFpPWXUMsNrlODCrkoxMEeNi/XZIwuRvY4XNwYMJpw==
+
 sha.js@^2.4.0, sha.js@^2.4.8:
   version "2.4.10"
   resolved "https://registry.yarnpkg.com/sha.js/-/sha.js-2.4.10.tgz#b1fde5cd7d11a5626638a07c604ab909cfa31f9b"
@@ -11683,10 +11695,10 @@ ua-parser-js@^0.7.9:
   resolved "https://registry.yarnpkg.com/ua-parser-js/-/ua-parser-js-0.7.17.tgz#e9ec5f9498b9ec910e7ae3ac626a805c4d09ecac"
   integrity sha512-uRdSdu1oA1rncCQL7sCj8vSyZkgtL7faaw9Tc9rZ3mGgraQ7+Pdx7w5mnOSF3gw9ZNG6oc+KXfkon3bKuROm0g==
 
-undici@^1.0.0:
-  version "1.2.2"
-  resolved "https://registry.yarnpkg.com/undici/-/undici-1.2.2.tgz#8305ebfc6668ae128cdb43f57a114f746cbd2339"
-  integrity sha512-hp8AVHO4RfL20a57ziLcWtYuLo8pgP4YTnUTd6iI2GaE21BaFedcJUwWNVPFO2vT2vQcYKjdlF3nVASkWDu7FQ==
+undici@^2.1.0:
+  version "2.2.1"
+  resolved "https://registry.yarnpkg.com/undici/-/undici-2.2.1.tgz#7015c205530a3c71de867291d2196c50272a287b"
+  integrity sha512-21sJmMvJOMsyt/2pQPgB5Ruvm2ADTTm34NHRy4kzfeW9uMO7gK2oN0f+5KaJCmoKGJb8KxdU6yWpW0SphFHadw==
 
 unicode-canonical-property-names-ecmascript@^1.0.4:
   version "1.0.4"
@@ -12696,10 +12708,10 @@ ws@^6.1.2, ws@^6.2.1:
   dependencies:
     async-limiter "~1.0.0"
 
-ws@^7.2.3, ws@^7.3.1:
-  version "7.3.1"
-  resolved "https://registry.yarnpkg.com/ws/-/ws-7.3.1.tgz#d0547bf67f7ce4f12a72dfe31262c68d7dc551c8"
-  integrity sha512-D3RuNkynyHmEJIpD2qrgVkc9DQ23OrN/moAwZX4L8DfvszsJxpjQuUq3LMx6HoYji9fbIOBY18XWBsAux1ZZUA==
+ws@^7.4.1:
+  version "7.4.3"
+  resolved "https://registry.yarnpkg.com/ws/-/ws-7.4.3.tgz#1f9643de34a543b8edb124bdcbc457ae55a6e5cd"
+  integrity sha512-hr6vCR76GsossIRsr8OLR9acVVm1jyfEWvhbNjtgPOrfvAlKzvyeg/P6r8RuDjRyrcQoPQT7K0DGEPc7Ae6jzA==
 
 xml-name-validator@^3.0.0:
   version "3.0.0"
